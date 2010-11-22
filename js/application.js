@@ -11,6 +11,7 @@ function Application() {
     this.views = ['main_menu', 'about'];
 
     this.aboutView = new AboutView();
+    this.mainMenuView = new MainMenuView();
 }
 
 Application.prototype.markViewed = function(view_name) {
