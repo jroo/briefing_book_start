@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Start Treaty</title>
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
+	<link rel="stylesheet" type="text/css" href="css/iphone.css" />
+	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.jsonp-2.0.2.min.js"></script>
+	<script type="text/javascript" src="js/date_utils.js"></script>
+	<script type="text/javascript" src="js/application.js"></script>
+	<script type="text/javascript" src="js/view.js"></script>
+	<script type="text/javascript" src="js/about.js"></script>
+</head>
+
+<body>
+	<div id="header">
+		<img id="leftButton">
+		<img id="rightButton">
+		<h1 id="title_text">Menu</h1>
+	</div>
+	
+	<div id="main_menu_body">
+		<h2>Briefing Book: New START Treaty</h2>
+		<ul class="menu">
+			<li onClick="application.loadView('timeline')" class="about">Timeline</li>
+			<li onClick="application.loadView('news')" class="about">Recent News</li>
+			<li onClick="application.loadView('editorials')" class="about">Editorials</li>
+			<li onClick="application.loadView('policy')" class="about">Policy Positions</li>
+			<li onClick="application.loadView('treaty')" class="about">Treaty Documents</li>
+			<li onClick="application.loadView('background')" class="about">Background Info</li>
+			<li onClick="application.loadView('about')" class="about">Help</li>
+		</ul>
+	</div>
+
+	<div id="about_body" class="content">
+		<div class="info_content">
+			blurb
+		</div>
+		<h3 class="header_row">Header</h3>
+		<div class="info_content">
+		</div>
+
+		<h3 class="header_row">Application Information</h3>
+		<div class="info_content">
+			<div id="title"></div>
+			<div id="version"></div>
+			<div id="description"></div>
+			<div id="copyright"></div>
+			<div ><a id="url" href=""></a></div>
+		</div>
+	</div>
+	
+	<div id="empty_result">
+		<h2 id="empty_message"></h2>
+	</div>
+	
+	<div id="preload">
+		<img src="images/back.svg">
+		<img src="images/back_active.svg">
+		<img src="images/menu.svg">
+		<img src="images/menu_active.svg">
+		<img src="images/child_next.svg">
+		<img src="images/reload.svg">
+		<img src="images/reload_active.svg">
+	</div>
+	
+	<div id="progress">Loading...</div>
+</body>
+</html>
