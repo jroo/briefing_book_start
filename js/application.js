@@ -8,10 +8,11 @@ function Application() {
     this.apiDomain = 'briefingbook.org';
     this.ajaxTimeout = 10000;
     this.localDb = this.openDb('briefing_book', '1.0', 'Briefing Book');
-    this.views = ['main_menu', 'about'];
+    this.views = ['main_menu', 'about', 'doc_list'];
 
     this.aboutView = new AboutView();
     this.mainMenuView = new MainMenuView();
+    this.docListView = new DocListView();
 }
 
 Application.prototype.markViewed = function(view_name) {
@@ -73,7 +74,7 @@ Application.prototype.populateDb = function() {
             transaction.executeSql("INSERT INTO Source (id, title) VALUES ('cfr','Council on Foreign Relations')");
             
             /* Resources */
-            transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://www.jbs.org/component/content/article/1009-commentary/6378-stop-the-new-start-treaty', '6/30/10', 'Stop the New START Treaty', 'jbs', 'policy_position', 'http://www.jbs.org/component/content/article/1009-commentary/6378-stop-the-new-start-treaty')", [], nullDataHandler, errorHandler);
+            transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://www.jbs.org/component/content/article/1009-commentary/6378-stop-the-new-start-treaty', '6/30/10', 'Stop the New START Treaty', 'jbs', 'think_tank', 'http://www.jbs.org/component/content/article/1009-commentary/6378-stop-the-new-start-treaty')", [], nullDataHandler, errorHandler);
             transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://rpc.senate.gov/public/index.cfm?p=PolicyPapers&ContentRecord_id=050a24e1-1d09-b722-b5ca-a9a6ad31a4a9&ContentType_id=52b58cdf-6a90-410a-b4d7-fead13c38a57&48a8eee4-33df-4bce-b6bd-710c426ab3e1&3d1f05d6-ed37-4dea-897e-e41bafd0e109&d77c912a-2c22-4843-a17b-96c2f091d607&Group_id=b0a05cea-8716-48ff-aaac-a137d28f37de', '9/30/09', 'START: Do Time Extension Instead of a Bad Treaty', 'rpc', 'policy_position', 'http://rpc.senate.gov/public/index.cfm?p=PolicyPapers&ContentRecord_id=050a24e1-1d09-b722-b5ca-a9a6ad31a4a9&ContentType_id=52b58cdf-6a90-410a-b4d7-fead13c38a57&48a8eee4-33df-4bce-b6bd-710c426ab3e1&3d1f05d6-ed37-4dea-897e-e41bafd0e109&d77c912a-2c22-4843-a17b-96c2f091d607&Group_id=b0a05cea-8716-48ff-aaac-a137d28f37de')", [], nullDataHandler, errorHandler);
             transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://dpc.senate.gov/dpcdocpr.cfm?doc_name=fs-111-2-30', '3/3/10', 'A New START Treaty Is Critical to U.S. National Security', 'dpc', 'policy_position', 'http://dpc.senate.gov/dpcdocpr.cfm?doc_name=fs-111-2-30')", [], nullDataHandler, errorHandler);
             transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://dpc.senate.gov/dpcdoc.cfm?doc_name=fs-111-2-29', '3/3/10', 'The Follow-on START Agreement: Responding to False Claims', 'dpc', 'policy_position', 'http://dpc.senate.gov/dpcdoc.cfm?doc_name=fs-111-2-29')", [], nullDataHandler, errorHandler);
@@ -106,6 +107,7 @@ Application.prototype.populateDb = function() {
             transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://blogs.wsj.com/washwire/2010/11/21/start-treaty-recalling-reagan/', '11/21/10', 'START Treaty: Recalling Reagan', 'wsj', 'editorial', 'http://blogs.wsj.com/washwire/2010/11/21/start-treaty-recalling-reagan/')", [], nullDataHandler, errorHandler);
             transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://thf_media.s3.amazonaws.com/2010/pdf/bg2466.pdf', '9/16/10', 'Twelve Flaws of New START That Will Be Difficult to Fix', 'heritage', 'think_tank', 'http://thf_media.s3.amazonaws.com/2010/pdf/bg2466.pdf')", [], nullDataHandler, errorHandler);
             transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://www.cfr.org/publication/22684/debating_the_new_start_treaty.html', '7/22/10', 'Debating the New START Treaty', 'cfr', 'think_tank', 'http://www.cfr.org/publication/22684/debating_the_new_start_treaty.html')", [], nullDataHandler, errorHandler);
+            transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://rpc.senate.gov/public/index.cfm?p=Blog&ContentRecord_id=9927eb6b-5ea2-4758-947f-2df3eb2a87ed', '11/23/2010', 'Reagan Would Have Never Limited US Missile Defenses', 'rpc', 'policy_position', 'http://rpc.senate.gov/public/index.cfm?p=Blog&ContentRecord_id=9927eb6b-5ea2-4758-947f-2df3eb2a87ed')", [], nullDataHandler, errorHandler);
         }
     );
 }
@@ -120,6 +122,9 @@ Application.prototype.dbPurgeOld = function () {
 Application.prototype.startOver = function () {
     this.localDb.transaction(
         function(transaction) { 
+                transaction.executeSql("DROP TABLE Resource");
+                transaction.executeSql("DROP TABLE ResourceType");
+                transaction.executeSql("DROP TABLE Source");
             }
         );
 }
@@ -142,6 +147,9 @@ Application.prototype.loadView = function(view_name) {
         case 'about':
             this.aboutView.render();
             break;
+        case 'doc_list':
+            this.docListView.render();
+            break;
         case 'main_menu':
             this.mainMenuView.render();
             break;
@@ -150,6 +158,7 @@ Application.prototype.loadView = function(view_name) {
 
 $(document).ready(function() { 
     application = new Application();
+    application.startOver();
     application.initializeDb();
     application.populateDb();
     application.dbPurgeOld();

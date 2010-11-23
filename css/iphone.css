@@ -1,5 +1,5 @@
 body {
-    background-color: #EFEFEF;
+    background-color: #FF00FF;
     color: #222;            
     font-family: Helvetica; 
     font-size: 14px;
@@ -9,7 +9,7 @@ body {
 
 #header {
 	background-color: #333;
-	background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#000));
+	background: -webkit-gradient(linear, left top, left bottom, from(#00FF66), to(#000));
 }
 
 #header h1 {
@@ -55,7 +55,7 @@ body {
 }
 
 .menu li  {
-    background-color: #FFFFFF;
+    background-color: #67C8FF;
     border: 1px solid #999999;
     color: #222222;
     /*display: block;*/

@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="js/application.js"></script>
 	<script type="text/javascript" src="js/view.js"></script>
 	<script type="text/javascript" src="js/about.js"></script>
+	<script type="text/javascript" src="js/doc_list.js"></script>
 	<script type="text/javascript" src="js/main_menu.js"></script>
 </head>
 
@@ -23,11 +24,11 @@
 	<div id="main_menu_body">
 		<h2>New START Treaty</h2>
 		<ul class="menu">
-			<li onClick="application.loadView('editorials')" class="about">Editorials</li>
-			<li onClick="application.loadView('policy')" class="about">Policy Positions</li>
-			<li onClick="application.loadView('think_tank')", class="about">Think Tank Positions</li>
-			<li onClick="application.loadView('treaty')" class="about">Treaty Documents</li>
-			<li onClick="application.loadView('background')" class="about">Resources</li>
+			<li onClick="application.mainMenuView.loadList('editorial', 'Editorials')" class="about">Editorials</li>
+			<li onClick="application.mainMenuView.loadList('policy_position', 'Policy Positions')" class="about">Policy Positions</li>
+			<li onClick="application.mainMenuView.loadList('think_tank', 'Think Tank Positions')", class="about">Think Tank Positions</li>
+			<li onClick="application.mainMenuView.loadList('treaty', 'Treaty Documents')" class="about">Treaty Documents</li>
+			<li onClick="application.mainMenuView.loadList('resource', 'Resources')" class="about">Other Resources</li>
 			<li onClick="application.loadView('about')" class="about">About</li>
 		</ul>
 	</div>
@@ -48,6 +49,11 @@
 			<div id="copyright"></div>
 			<div ><a id="url" href=""></a></div>
 		</div>
+	</div>
+	
+	<div id="doc_list_body" class="content">
+		<ul id="doc_list" class="classic_link_list">
+		</ul>
 	</div>
 	
 	<div id="empty_result">
