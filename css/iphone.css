@@ -1,5 +1,5 @@
 body {
-    background-color: #FF00FF;
+    background-color: #EFEFEF;
     color: #222;            
     font-family: Helvetica; 
     font-size: 14px;
@@ -9,7 +9,7 @@ body {
 
 #header {
 	background-color: #333;
-	background: -webkit-gradient(linear, left top, left bottom, from(#00FF66), to(#000));
+	background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#000));
 }
 
 #header h1 {
@@ -26,27 +26,72 @@ body {
     text-overflow: ellipsis;
 }
 
+#header h1#main_title_text {
+	color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+    text-shadow: 0px 1px 0px #666666;
+    max-width: 240px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#subheader {
+	background-color: #FF3333;
+	background: -webkit-gradient(linear, left top, left bottom, from(#777), to(#000));
+}
+
+#subheader h1 {
+	color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+    text-shadow: 0px 1px 0px #666666;
+}
+
+#subheader h1#subtitle_text {
+	color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+    text-shadow: 0px 1px 0px #666666;
+}
+
 #main_menu_body {
 	margin: 0px;
 }
-#main_menu_body ul {
+.menu_page {
 	list-style: none;
 	margin: 10px;
 	padding: 0;
 }
-#main_menu_body ul.menu li  {
+.menu_page ul.menu li  {
 	background-position: 10px 12px;
 	background-repeat: no-repeat;
 	padding: 18px 0 18px 50px;
 }
 
-#main_menu_body ul.menu li.floor-updates  { background-image: url(../images/updates.svg); }
-#main_menu_body ul.menu li.whip-notices  { background-image: url(../images/notices.svg); }
-#main_menu_body ul.menu li.hearings  { background-image: url(../images/hearings.svg); }
-#main_menu_body ul.menu li.documents  { background-image: url(../images/docs.svg); }
-#main_menu_body ul.menu li.news  { background-image: url(../images/news.svg); }
-#main_menu_body ul.menu li.about  { background-image: url(../images/about.svg); }
+.menu_page ul.menu li.floor-updates  { background-image: url(../images/updates.svg); }
+.menu_page ul.menu li.legislators  { background-image: url(../images/legislators.svg); }
+.menu_page ul.menu li.hearings  { background-image: url(../images/hearings.svg); }
+.menu_page ul.menu li.documents  { background-image: url(../images/docs.svg); }
+.menu_page ul.menu li.news  { background-image: url(../images/news.svg); }
+.menu_page ul.menu li.about  { background-image: url(../images/about.svg); }
 
+.menu_page ul.menu li.favorites  { background-image: url(../images/favorites.svg); }
+.menu_page ul.menu li.committees  { background-image: url(../images/notices.svg); }
+.menu_page ul.menu li.location  { background-image: url(../images/location.svg); }
+.menu_page ul.menu li.state { background-image: url(../images/state.svg); }
+.menu_page ul.menu li.last_name  { background-image: url(../images/last_name.svg); }
+.menu_page ul.menu li.zip_code  { background-image: url(../images/zip_code.svg); }
 
 .menu {
     list-style: none;
@@ -55,7 +100,7 @@ body {
 }
 
 .menu li  {
-    background-color: #67C8FF;
+    background-color: #FFFFFF;
     border: 1px solid #999999;
     color: #222222;
     /*display: block;*/
@@ -94,7 +139,7 @@ body {
     display:none;
 }
 
-#progress {
+.progress {
     -webkit-border-radius: 10px;
     background-color: rgba(0,0,0,.7);
     color: white;
@@ -108,7 +153,6 @@ body {
     text-align: center;
     top: 120px;
     width: 200px;
-    display:none;
 }
 
 .classic_list {
@@ -181,13 +225,19 @@ body {
     font-weight: bold;
 }
 
+.result_title_viewed {
+    margin-right:20px;
+    font-weight: bold;
+    color: #999999;
+}
+
 .result_head {
     margin-bottom:8px;
 }
 
 .result_subtitle {
     margin-right:20px;
-    color: #777777;
+    color: #999999;
     font-size:10pt;
 }
 
@@ -196,6 +246,13 @@ body {
 }
 
 .result_body {
+    background-image: url('../images/child_next.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.legislator_result_body {
+    font-weight: bold;
     background-image: url('../images/child_next.svg');
     background-repeat: no-repeat;
     background-position: right;
@@ -272,6 +329,7 @@ body {
 	background: url('../images/senate-active.svg') top left no-repeat;
 }
 
+
 .clear {
 	clear: both;
 }
@@ -287,13 +345,55 @@ body {
     padding-bottom:40px;
 }
 
+.form_wrapper {
+    margin: 10px;
+}
+
+#legislator_photo_contain {
+    margin-left:15px;
+    float: left;
+    width: 100px;
+}
+
+#legislator_photo {
+    height: 100px;
+}
+
+#legislator_info {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 25px;
+}
+
+.news_logo {
+    height: 12px;
+    width: 12px;
+    vertical-align: middle;
+}
 #about_body { display:none }
+#committee_body { display:none }
 #doc_list_body { display:none }
 #documents_body { display:none }
 #floor_updates_body { display:none }
 #hearings_body { display:none }
+#legislation_body { display:none }
+#legislation_introduced_body { display:none }
+#legislation_recent_body { display:none }
+#legislation_bill_num_body { display:none }
+#legislators_body { display:none }
+#legislators_committees_body { display:none }
+#legislators_favorites_body { display:none }
+#legislators_last_name_body { display:none }
+#legislators_location_body { display:none }
+#legislators_state_body { display:none }
+#legislators_states_body { display:none }
+#legislators_zip_body { display:none }
+#load_progress { display:none }
+#locate_progress { display:none }
 #news_body { display:none }
 #news_source_body { display:none }
+#subcommittee_body { display:none }
+#subheader { display:none }
 #whip_notices_body { display:none }
 #empty_result { display:none; text-align: center; }
 
