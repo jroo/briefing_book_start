@@ -1,9 +1,9 @@
 function Application() {
-    this.title = "Briefing Book: START Treaty";
-    this.version = "0.1b";
+    this.title = "Briefing Book: New START Treaty";
+    this.version = "0.9b";
     this.author = "Joshua Ruihley, Sunlight Foundation";
     this.copyright = "Copyright 2010, Sunlight Foundation";
-    this.url = "http://briefingbook.org";
+    this.url = "http://newstart.briefingbook.org";
 
     this.apiDomain = 'briefingbook.org';
     this.ajaxTimeout = 10000;
@@ -73,6 +73,7 @@ Application.prototype.populateDb = function() {
             transaction.executeSql("INSERT INTO Source (id, title) VALUES ('heritage','Heritage Foundation')");
             transaction.executeSql("INSERT INTO Source (id, title) VALUES ('cfr','Council on Foreign Relations')");
             transaction.executeSql("INSERT INTO Source (id, title) VALUES ('usa_today','USA Today')");
+            transaction.executeSql("INSERT INTO Source (id, title) VALUES ('mtp','Meet the Press')");
 
             
             /* Resources */
@@ -112,7 +113,7 @@ Application.prototype.populateDb = function() {
             transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://rpc.senate.gov/public/index.cfm?p=Blog&ContentRecord_id=9927eb6b-5ea2-4758-947f-2df3eb2a87ed', '2010-11-23', 'Reagan Would Have Never Limited US Missile Defenses', 'rpc', 'policy_position', 'http://rpc.senate.gov/public/index.cfm?p=Blog&ContentRecord_id=9927eb6b-5ea2-4758-947f-2df3eb2a87ed')", [], nullDataHandler, errorHandler);           
             transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://www.usatoday.com/news/opinion/editorials/2010-11-30-editorial30_ST1_N.htm', '2010-11-29', 'Kit Bond: Dangerously one-sided', 'usa_today', 'editorial', 'http://www.usatoday.com/news/opinion/editorials/2010-11-30-editorial30_ST1_N.htm')", [], nullDataHandler, errorHandler);
             transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://www.usatoday.com/news/opinion/editorials/2010-11-30-editorial30_ST_N.htm', '2010-11-29', 'Stop playing politics and ratify the New START arms treaty', 'usa_today', 'editorial', 'http://www.usatoday.com/news/opinion/editorials/2010-11-30-editorial30_ST_N.htm')", [], nullDataHandler, errorHandler);
-
+            transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://www.msnbc.msn.com/id/40392979/ns/meet_the_press-transcripts', '2010-11-28', 'Senators Kyl and Durbin Discuss Treaty', 'mtp', 'editorial', 'http://www.msnbc.msn.com/id/40392979/ns/meet_the_press-transcripts')", [], nullDataHandler, errorHandler);
         }
     );
 }
