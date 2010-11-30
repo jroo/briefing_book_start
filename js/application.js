@@ -61,7 +61,7 @@ Application.prototype.populateDb = function() {
             transaction.executeSql("INSERT INTO Source (id, title) VALUES ('jbs','John Birch Society')");
             transaction.executeSql("INSERT INTO Source (id, title) VALUES ('state','State Department')");
             transaction.executeSql("INSERT INTO Source (id, title) VALUES ('white_house','White House')");
-            transaction.executeSql("INSERT INTO Source (id, title) VALUES ('wjs','Wall Street Journal')");
+            transaction.executeSql("INSERT INTO Source (id, title) VALUES ('wsj','Wall Street Journal')");
             transaction.executeSql("INSERT INTO Source (id, title) VALUES ('senate','U.S. Senate')");
             transaction.executeSql("INSERT INTO Source (id, title) VALUES ('crs','Congressional Research Service')");
             transaction.executeSql("INSERT INTO Source (id, title) VALUES ('economist','The Economist')");
@@ -72,6 +72,8 @@ Application.prototype.populateDb = function() {
             transaction.executeSql("INSERT INTO Source (id, title) VALUES ('nro','National Review')");
             transaction.executeSql("INSERT INTO Source (id, title) VALUES ('heritage','Heritage Foundation')");
             transaction.executeSql("INSERT INTO Source (id, title) VALUES ('cfr','Council on Foreign Relations')");
+            transaction.executeSql("INSERT INTO Source (id, title) VALUES ('usa_today','USA Today')");
+
             
             /* Resources */
             transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://www.jbs.org/component/content/article/1009-commentary/6378-stop-the-new-start-treaty', '2010-06-30', 'Stop the New START Treaty', 'jbs', 'think_tank', 'http://www.jbs.org/component/content/article/1009-commentary/6378-stop-the-new-start-treaty')", [], nullDataHandler, errorHandler);
@@ -107,7 +109,10 @@ Application.prototype.populateDb = function() {
             transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://blogs.wsj.com/washwire/2010/11/21/start-treaty-recalling-reagan/', '2010-11-21', 'START Treaty: Recalling Reagan', 'wsj', 'editorial', 'http://blogs.wsj.com/washwire/2010/11/21/start-treaty-recalling-reagan/')", [], nullDataHandler, errorHandler);
             transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://thf_media.s3.amazonaws.com/2010/pdf/bg2466.pdf', '2010-09-16', 'Twelve Flaws of New START That Will Be Difficult to Fix', 'heritage', 'think_tank', 'http://thf_media.s3.amazonaws.com/2010/pdf/bg2466.pdf')", [], nullDataHandler, errorHandler);
             transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://www.cfr.org/publication/22684/debating_the_new_start_treaty.html', '2010-07-22', 'Debating the New START Treaty', 'cfr', 'think_tank', 'http://www.cfr.org/publication/22684/debating_the_new_start_treaty.html')", [], nullDataHandler, errorHandler);
-            transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://rpc.senate.gov/public/index.cfm?p=Blog&ContentRecord_id=9927eb6b-5ea2-4758-947f-2df3eb2a87ed', '2010-11-23', 'Reagan Would Have Never Limited US Missile Defenses', 'rpc', 'policy_position', 'http://rpc.senate.gov/public/index.cfm?p=Blog&ContentRecord_id=9927eb6b-5ea2-4758-947f-2df3eb2a87ed')", [], nullDataHandler, errorHandler);
+            transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://rpc.senate.gov/public/index.cfm?p=Blog&ContentRecord_id=9927eb6b-5ea2-4758-947f-2df3eb2a87ed', '2010-11-23', 'Reagan Would Have Never Limited US Missile Defenses', 'rpc', 'policy_position', 'http://rpc.senate.gov/public/index.cfm?p=Blog&ContentRecord_id=9927eb6b-5ea2-4758-947f-2df3eb2a87ed')", [], nullDataHandler, errorHandler);           
+            transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://www.usatoday.com/news/opinion/editorials/2010-11-30-editorial30_ST1_N.htm', '2010-11-29', 'Kit Bond: Dangerously one-sided', 'usa_today', 'editorial', 'http://www.usatoday.com/news/opinion/editorials/2010-11-30-editorial30_ST1_N.htm')", [], nullDataHandler, errorHandler);
+            transaction.executeSql("INSERT INTO Resource (id, timestamp, title, source, type, url) VALUES('http://www.usatoday.com/news/opinion/editorials/2010-11-30-editorial30_ST_N.htm', '2010-11-29', 'Stop playing politics and ratify the New START arms treaty', 'usa_today', 'editorial', 'http://www.usatoday.com/news/opinion/editorials/2010-11-30-editorial30_ST_N.htm')", [], nullDataHandler, errorHandler);
+
         }
     );
 }
