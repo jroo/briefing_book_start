@@ -9,7 +9,7 @@ body {
 
 #header {
 	background-color: #333;
-	background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#000));
+	background: -webkit-gradient(linear, left top, left bottom, from(#591E1D), to(#591E1D));
 }
 
 #header h1 {
@@ -176,7 +176,7 @@ body {
 
 .classic_list li a {
 	text-decoration: none;
-	color: #000000;
+	color: #591E1D;
 }
 
 .classic_link_list {
