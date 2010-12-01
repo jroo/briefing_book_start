@@ -8,11 +8,12 @@ function Application() {
     this.apiDomain = 'briefingbook.org';
     this.ajaxTimeout = 10000;
     this.localDb = this.openDb('briefing_book', '1.0', 'Briefing Book');
-    this.views = ['main_menu', 'about', 'doc_list'];
+    this.views = ['main_menu', 'about', 'doc_list', 'install'];
 
     this.aboutView = new AboutView();
     this.mainMenuView = new MainMenuView();
     this.docListView = new DocListView();
+    this.installView = new InstallView();
 }
 
 Application.prototype.markViewed = function(view_name) {
@@ -164,11 +165,12 @@ Application.prototype.loadView = function(view_name) {
 
 $(document).ready(function() { 
     application = new Application();
-    application.startOver();
-    application.initializeDb();
-    application.populateDb();
-    application.dbPurgeOld();
     if (window.navigator.standalone) {
-        alert("is app");
+        application.startOver();
+        application.initializeDb();
+        application.populateDb();
+        application.dbPurgeOld();
+    } else {
+        application.installView.render();
     }
 });

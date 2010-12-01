@@ -370,6 +370,8 @@ body {
     width: 12px;
     vertical-align: middle;
 }
+
+#main_menu_body {display:none }
 #about_body { display:none }
 #committee_body { display:none }
 #doc_list_body { display:none }
@@ -396,5 +398,7 @@ body {
 #subheader { display:none }
 #whip_notices_body { display:none }
 #empty_result { display:none; text-align: center; }
+#sorry_body {display:none; text-align: center;}
+#install_body {display:none; text-align: center;}
 
 #preload { display:none }
