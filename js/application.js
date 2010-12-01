@@ -157,6 +157,9 @@ Application.prototype.loadView = function(view_name) {
         case 'doc_list':
             this.docListView.render();
             break;
+        case 'install':
+            this.installView.render();
+            break;
         case 'main_menu':
             this.mainMenuView.render();
             break;
@@ -170,7 +173,8 @@ $(document).ready(function() {
         application.initializeDb();
         application.populateDb();
         application.dbPurgeOld();
+        application.loadView('main_menu');
     } else {
-        application.installView.render();
+        application.loadView('install');
     }
 });
