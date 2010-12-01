@@ -1,3 +1,9 @@
+if (window.navigator.standalone) {
+    document.getElementById('main_menu_body').style.display = 'block';
+} else {
+    document.getElementById('install_body').style.display = 'block';
+}
+
 function Application() {
     this.title = "Briefing Book: New START Treaty";
     this.version = "0.9b";
@@ -175,9 +181,3 @@ $(document).ready(function() {
         application.dbPurgeOld();
     }
 });
-
-if (window.navigator.standalone) {
-    document.getElementById('main_menu_body').style.display = 'block';
-} else {
-    document.getElementById('install_body').style.display = 'block';
-}
