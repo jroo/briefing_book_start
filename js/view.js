@@ -26,11 +26,11 @@ View.prototype.renderHeader = function(title, dest_list) {
 
 View.prototype.setLeftButton = function(button_type, destination) {
     if (typeof button_type != "undefined") {
-        $('#leftButton').attr("src", "images/" + button_type + ".svg");
+        $('#leftButton').attr("src", "images/" + button_type + ".png");
         $('#leftButton').unbind();
         $('#leftButton').click(function() { application.loadView( destination ) } );
-        $('#leftButton').mousedown(function() { $('#leftButton').attr("src", "images/" + button_type + "_active.svg") } );
-        $('#leftButton').mouseup(function() { $('#leftButton').attr("src", "images/" + button_type + ".svg") } );
+        $('#leftButton').mousedown(function() { $('#leftButton').attr("src", "images/" + button_type + "_active.png") } );
+        $('#leftButton').mouseup(function() { $('#leftButton').attr("src", "images/" + button_type + ".png") } );
         $('#leftButton').show();
     } else {
         $('#leftButton').hide();
@@ -42,10 +42,10 @@ View.prototype.setRightButton = function(button_type, destination) {
         func = this.reload;
     }
     if (typeof button_type != "undefined") {
-        $('#rightButton').attr("src", "images/" + button_type + ".svg");
+        $('#rightButton').attr("src", "images/" + button_type + ".png");
         $('#rightButton').unbind();
-        $('#rightButton').mousedown(function() { $('#rightButton').attr("src", "images/" + button_type + "_active.svg") } );
-        $('#rightButton').mouseup(function() { $('#rightButton').attr("src", "images/" + button_type + ".svg") } );
+        $('#rightButton').mousedown(function() { $('#rightButton').attr("src", "images/" + button_type + "_active.png") } );
+        $('#rightButton').mouseup(function() { $('#rightButton').attr("src", "images/" + button_type + ".png") } );
         $('#rightButton').click(function() { func(); } );
         $('#rightButton').show();
     } else {
