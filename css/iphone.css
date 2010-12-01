@@ -371,6 +371,10 @@ body {
     vertical-align: middle;
 }
 
+.icon {
+    margin-top: 10px;
+}
+
 #main_menu_body {display:none }
 #about_body { display:none }
 #committee_body { display:none }
