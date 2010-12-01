@@ -1,3 +1,9 @@
+if (window.navigator.standalone) {
+    document.getElementById('main_menu_body').style.display = 'block';
+} else {
+    document.getElementById('install_body').style.display = 'block';
+}
+
 function Application() {
     this.title = "Briefing Book: New START Treaty";
     this.version = "0.9b";
@@ -8,11 +14,12 @@ function Application() {
     this.apiDomain = 'briefingbook.org';
     this.ajaxTimeout = 10000;
     this.localDb = this.openDb('briefing_book', '1.0', 'Briefing Book');
-    this.views = ['main_menu', 'about', 'doc_list'];
+    this.views = ['main_menu', 'about', 'doc_list', 'install'];
 
     this.aboutView = new AboutView();
     this.mainMenuView = new MainMenuView();
     this.docListView = new DocListView();
+    this.installView = new InstallView();
 }
 
 Application.prototype.markViewed = function(view_name) {
@@ -156,6 +163,9 @@ Application.prototype.loadView = function(view_name) {
         case 'doc_list':
             this.docListView.render();
             break;
+        case 'install':
+            this.installView.render();
+            break;
         case 'main_menu':
             this.mainMenuView.render();
             break;
@@ -163,9 +173,11 @@ Application.prototype.loadView = function(view_name) {
 }
 
 $(document).ready(function() { 
-    application = new Application();
-    application.startOver();
-    application.initializeDb();
-    application.populateDb();
-    application.dbPurgeOld();
+    if (window.navigator.standalone) {
+        application = new Application();
+        application.startOver();
+        application.initializeDb();
+        application.populateDb();
+        application.dbPurgeOld();
+    }
 });
