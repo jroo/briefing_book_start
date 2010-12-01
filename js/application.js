@@ -1,7 +1,12 @@
-if (window.navigator.standalone) {
-    document.getElementById('main_menu_body').style.display = 'block';
+var isiOS = (navigator.userAgent.match(/iPad/i) != null || navigator.userAgent.match(/iPad/i) != null);
+if (isiOS) {
+    if (window.navigator.standalone) {
+        document.getElementById('main_menu_body').style.display = 'block';
+    } else {
+        document.getElementById('install_body').style.display = 'block';
+    }
 } else {
-    document.getElementById('install_body').style.display = 'block';
+    document.getElementById('sorry_body').style.display = 'block';
 }
 
 function Application() {
