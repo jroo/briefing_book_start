@@ -1,4 +1,4 @@
-var isiOS = (navigator.userAgent.match(/iPad/i) != null || navigator.userAgent.match(/iPad/i) != null);
+var isiOS = (navigator.userAgent.match(/iPad/i) != null || navigator.userAgent.match(/iPad/i) != null || navigator.userAgent.match(/iPhone/i) != null);
 if (isiOS) {
     if (window.navigator.standalone) {
         document.getElementById('main_menu_body').style.display = 'block';
