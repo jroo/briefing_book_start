@@ -168,5 +168,7 @@ $(document).ready(function() {
     application.initializeDb();
     application.populateDb();
     application.dbPurgeOld();
-    alert(navigator.userAgent);
+    if (window.navigator.standalone) {
+        alert("is app");
+    }
 });
