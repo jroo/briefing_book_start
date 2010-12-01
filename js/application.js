@@ -168,4 +168,5 @@ $(document).ready(function() {
     application.initializeDb();
     application.populateDb();
     application.dbPurgeOld();
+    alert(navigator.userAgent);
 });
