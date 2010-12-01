@@ -167,14 +167,17 @@ Application.prototype.loadView = function(view_name) {
 }
 
 $(document).ready(function() { 
-    application = new Application();
     if (window.navigator.standalone) {
+        application = new Application();
         application.startOver();
         application.initializeDb();
         application.populateDb();
         application.dbPurgeOld();
-        application.loadView('main_menu');
-    } else {
-        application.loadView('install');
     }
 });
+
+if (window.navigator.standalone) {
+    document.getElementById('main_menu_body').style.display = 'block';
+} else {
+    document.getElementById('install_body').style.display = 'block';
+}
