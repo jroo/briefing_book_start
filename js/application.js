@@ -14,7 +14,7 @@ function Application() {
     this.version = "1.0";
     this.author = "Joshua Ruihley, Sunlight Foundation";
     this.copyright = "Copyright 2010, Sunlight Foundation";
-    this.url = "http://newstart.briefingbook.org";
+    this.url = "http://sunlightfoundation.com";
 
     this.apiDomain = 'briefingbook.org';
     this.ajaxTimeout = 10000;
