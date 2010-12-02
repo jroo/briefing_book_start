@@ -1,39 +1,86 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>New START</title>
-		<meta name="viewport" content="user-scalable=no, width=device-width" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<link rel="apple-touch-startup-image" href="images/apple-touch-startup-image.png" />
-		<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
-		<link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png" />
-		<link rel="stylesheet" type="text/css" href="css/iphone.css" />
-	</head>
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>New START</title> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+	<!--<script src="js/application.js"></script>-->
+	<script>
+		$('div').live('pagehide',function(event, ui){
+  			alert('This page was just hidden: '+ ui.nextPage);
+		});
+	</script>
+	<script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
+</head> 
+<body> 
 
-	<body>
-		<div id="header">
-			<img id="leftButton">
-			<img id="rightButton">
-			<h1 id="title_text">New START</h1>
+	<div data-role="page" id="main_menu">
+
+		<div data-role="header">
+			<h1>New START Treaty</h1>
 		</div>
-	
-		<div id="main_menu_body">
-			<ul class="menu">
-				<li onClick="application.mainMenuView.loadList('editorial', 'Editorials')" class="about">Editorials</li>
-				<li onClick="application.mainMenuView.loadList('policy_position', 'Policy Positions')" class="about">Policy Positions</li>
-				<li onClick="application.mainMenuView.loadList('think_tank', 'Think Tank Positions')", class="about">Think Tank Positions</li>
-				<li onClick="application.mainMenuView.loadList('treaty', 'Treaty Documents')" class="about">Treaty Documents</li>
-				<li onClick="application.mainMenuView.loadList('resource', 'Resources')" class="about">Other Resources</li>
-				<li onClick="application.loadView('about')" class="about">About</li>
+
+		<div data-role="content">
+			<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b"> 
+				<li><a href="#editorials">Editorials</a></li>
+				<li><a href="#policy_positions">Policy Positions</a></li>
+				<li><a href="#think_tank">Think Tank Positions</a></li>
+				<li><a href="#treaty_documents">Treaty Documents</a></li>
+				<li><a href="#other_resources">Other Resources</a></li>
+				<li><a href="#about">About</a></li>
 			</ul>
 		</div>
 
-		<div id="about_body" class="content">
-			<div class="info_content">
-				<p>Briefing Book: New START Treaty is the first in a series of applications from the nonpartisan Sunlight Foundation that aim to provide citizens with access to the research and opinions that influence the legislative process. From links to editorials, all the way down to the text of the legislation itself, we aim to empower citizens with the same information that legislators use to make their decisions.</p>
-				<p>The purpose of this application is to provide a nonpartisan look at the resources used in the legislative process. Sunlight Foundation is not advocating for any particular outcome related to this issue.  If you feel that an important resource is missing from this collection, please let us know.</p>
-			</div>
+	</div>
+	
+	<div data-role="page" id="editorials">
+		<div data-role="header">
+			<h1>Editorials</h1>
+			<ul id="editorial_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			</ul>
+		</div>
+	</div>
+	
+	<div data-role="page" id="policy_positions">
+		<div data-role="header">
+			<h1>Policy Positions</h1>
+			<ul id="policy_positions_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			</ul>
+		</div>
+	</div>
+	
+	<div data-role="page" id="think_tank">
+		<div data-role="header">
+			<h1>Think Tank Positions</h1>
+			<ul id="think_tank_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			</ul>
+		</div>
+	</div>
+	
+	<div data-role="page" id="treaty_documents">
+		<div data-role="header">
+			<h1>Treaty Documents</h1>
+			<ul id="treaty_documents_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			</ul>
+		</div>
+	</div>
+	
+	<div data-role="page" id="other_resources">
+		<div data-role="header">
+			<h1>Other Resources</h1>
+			<ul id="other_resources_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			</ul>
+		</div>
+	</div>
+	
+	<div data-role="page" id="about">
+		<div data-role="header">
+			<h1>About</h1>
+		</div>
+		
+		<div data-role="content">
+			<p>Briefing Book: New START Treaty is the first in a series of applications from the nonpartisan Sunlight Foundation that aim to provide citizens with access to the research and opinions that influence the legislative process. From links to editorials, all the way down to the text of the legislation itself, we aim to empower citizens with the same information that legislators use to make their decisions.</p>
+			<p>The purpose of this application is to provide a nonpartisan look at the resources used in the legislative process. Sunlight Foundation is not advocating for any particular outcome related to this issue.  If you feel that an important resource is missing from this collection, please let us know.</p>
 
 			<h3 class="header_row">Application Information</h3>
 			<div class="info_content">
@@ -44,61 +91,7 @@
 				<div ><a id="url" href=""></a></div>
 			</div>
 		</div>
-		
-		<div id="install_body" class="content">
-			<div class="icon"><img src="images/apple-touch-icon.png"></div>
-			<h1>Install Me!</h1>
-			<div class="info_content">
-				Press the '+' icon below and then select 'Add to Home Screen'
-			</div>
-		</div>
-		
-		<div id="sorry_body" class="content">
-			<h1>Sorry :(</h1>
-			<p>We're iPhone only for the moment but will be on other mobile browsers soon.</p>
-		</div>
-	
-		<div id="doc_list_body" class="content">
-			<ul id="doc_list" class="classic_link_list">
-			</ul>
-		</div>
-	
-		<div id="empty_result">
-			<h2 id="empty_message"></h2>
-		</div>
-	
-		<div id="preload">
-			<img src="images/back.png">
-			<img src="images/back_active.svg">
-			<img src="images/menu.svg">
-			<img src="images/menu_active.svg">
-			<img src="images/child_next.svg">
-			<img src="images/reload.svg">
-			<img src="images/reload_active.svg">
-		</div>
-	
-		<div id="load_progress">Loading...</div>
+	</div>
 
-	</body>
-	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-	<script type="text/javascript" src="js/jquery.jsonp-2.0.2.min.js"></script>
-	<script type="text/javascript" src="js/date_utils.js"></script>
-	<script type="text/javascript" src="js/application.js"></script>
-	<script type="text/javascript" src="js/view.js"></script>
-	<script type="text/javascript" src="js/about.js"></script>
-	<script type="text/javascript" src="js/doc_list.js"></script>
-	<script type="text/javascript" src="js/install.js"></script>
-
-	<script type="text/javascript" src="js/main_menu.js"></script>
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-1265484-70']);
-		_gaq.push(['_trackPageview']);
-
-		(function() {
-		  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
+</body>
 </html>
