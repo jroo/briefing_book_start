@@ -11,7 +11,7 @@ if (isiOS) {
 
 function Application() {
     this.title = "Briefing Book: New START Treaty";
-    this.version = "0.9b";
+    this.version = "1.0";
     this.author = "Joshua Ruihley, Sunlight Foundation";
     this.copyright = "Copyright 2010, Sunlight Foundation";
     this.url = "http://newstart.briefingbook.org";
