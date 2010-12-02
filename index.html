@@ -6,8 +6,8 @@
 	<script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
 	<!--<script src="js/application.js"></script>-->
 	<script>
-		$('div').live('pagehide',function(event, ui){
-  			alert('This page was just hidden: '+ ui.nextPage);
+		$('[data-role=page]').live('pageshow',function(event, ui){
+  			alert('This page was just displayed: '+ this.id);
 		});
 	</script>
 	<script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>

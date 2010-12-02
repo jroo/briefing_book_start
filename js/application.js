@@ -5,8 +5,6 @@ if (isiOS) {
     } else {
         document.getElementById('install_body').style.display = 'block';
     }
-} else {
-    document.getElementById('sorry_body').style.display = 'block';
 }
 
 function Application() {
