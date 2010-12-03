@@ -99,6 +99,7 @@ function DocListView() {
         row_div = $("<div>");
         
         row_a = $("<a>");
+        row_a.attr('href', row.url);
         
         timestamp_div = $("<div>");
         timestamp_div.text(self.documentFormat(row.date));
@@ -119,7 +120,7 @@ function DocListView() {
         row_a.append(row_div);
         
         
-        li.append(row_div);
+        li.append(row_a);
         $(ul).append(li);
 
         /*
