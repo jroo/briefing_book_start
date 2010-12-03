@@ -29,7 +29,6 @@ function DocListView() {
     }
     
     self.loadDocs = function(doc_type) {
-        self.setTitle(localStorage.getItem("current_doc_title"));
         self.dbGetLatest(doc_type);
         /*
         if (!application.isViewed('docs_' + doc_type)) {
@@ -38,12 +37,8 @@ function DocListView() {
         */
     }
     
-    self.render = function() {
-        self.setTitle(localStorage.getItem("current_doc_title"));
-        self.setLeftButton('back', 'main_menu');
-        /*
-        self.setRightButton('reload');
-        */
+    self.render = function(destination_list_name) {
+        self.destinationList = document.getElementById(destination_list_name);
         self.loadDocs(localStorage.getItem("current_doc_list"));
     }
     
@@ -88,39 +83,37 @@ function DocListView() {
         return latest_list;
     }
 
-    self.renderRow = function(row, dest_list) {
+    self.renderRow = function(row, ul) {
+        /*
         if (row.date != 'None') {
             date_str = self.documentFormat(row.date);
         } else {
             date_str = "";
         }
+        */
+        
+        list_item = document.createElement("div");
+        list_item.innerHTML = 'face';
+        
+        li = $("<li>");
+        li.text(row.title);
+        $(ul).append(li);
 
-        var newItem = document.createElement("li");
-
-        var result = document.createElement("div");
-        result.className = 'result_body';
-
-        var anchor = document.createElement("a");
-        anchor.href = row.url;
-
-        var titleDiv = document.createElement("div");
-        titleDiv.className = 'result_title';
-        titleDiv.innerHTML = row.title;
+        /*
 
         var subDiv = document.createElement("div");
-        subDiv.className = 'result_subtitle';
         subDiv.innerHTML = date_str;
         
 		var subDiv2 = document.createElement("div");
-		subDiv2.className = 'result_subtitle';
 		subDiv2.innerHTML = row.source;
 		anchor.appendChild(subDiv2);
 
         anchor.appendChild(titleDiv);
         anchor.appendChild(subDiv);
-        result.appendChild(anchor);
-        newItem.appendChild(result);
-        dest_list.appendChild(newItem);
+        newItem.appendChild(anchor);
+        */
+        
+        
     }
 
     self.documentFormat = function(orig_date) {

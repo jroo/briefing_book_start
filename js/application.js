@@ -19,8 +19,6 @@ function Application() {
     this.localDb = this.openDb('briefing_book', '1.0', 'Briefing Book');
     this.views = ['main_menu', 'about', 'doc_list', 'install'];
 
-    this.aboutView = new AboutView();
-    this.mainMenuView = new MainMenuView();
     this.docListView = new DocListView();
     this.installView = new InstallView();
 }
@@ -157,30 +155,38 @@ Application.prototype.hideAll = function() {
     $('#empty_result').hide();
 }
 
-Application.prototype.loadView = function(view_name) {
-    this.hideAll();
-    switch(view_name) {
-        case 'about':
-            this.aboutView.render();
+Application.prototype.initializePage = function(page_id) {
+    switch(page_id) {
+        case 'editorials':
+            localStorage.setItem("current_doc_list", "editorial");
+            this.docListView.render('editorials_list');
             break;
-        case 'doc_list':
-            this.docListView.render();
+        case 'policy_positions':
+            localStorage.setItem("current_doc_list", "policy_position");
+            this.docListView.render('policy_position_list');
             break;
-        case 'install':
-            this.installView.render();
+        case 'think_tank':
+            localStorage.setItem("current_doc_list", "think_tank");
+            this.docListView.render('think_tank_list');
             break;
-        case 'main_menu':
-            this.mainMenuView.render();
+        case 'treaty_documents':
+            localStorage.setItem("current_doc_list", "treaty");
+            this.docListView.render('treaty_list');
+            break;
+        case 'other_resources':
+            localStorage.setItem("current_doc_list", "resource");
+            this.docListView.render('resource_list');
             break;
     }
 }
 
 $(document).ready(function() { 
-    if (window.navigator.standalone) {
         application = new Application();
         application.startOver();
         application.initializeDb();
         application.populateDb();
         application.dbPurgeOld();
-    }
+        $('[data-role=page]').live('pageshow',function(event, ui){
+			application.initializePage(this.id);
+		});
 });

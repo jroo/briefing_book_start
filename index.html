@@ -4,12 +4,10 @@
 	<title>New START</title> 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css" />
 	<script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
-	<!--<script src="js/application.js"></script>-->
-	<script>
-		$('[data-role=page]').live('pageshow',function(event, ui){
-  			alert('This page was just displayed: '+ this.id);
-		});
-	</script>
+	<script src="js/application.js"></script>
+	<script src="js/view.js"></script>
+	<script src="js/doc_list.js"></script>
+	<script src="js/install.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
 </head> 
 <body> 
@@ -22,7 +20,7 @@
 
 		<div data-role="content">
 			<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b"> 
-				<li><a href="#editorials">Editorials</a></li>
+				<li><div><a href="#editorials">Editorials</a></div></li>
 				<li><a href="#policy_positions">Policy Positions</a></li>
 				<li><a href="#think_tank">Think Tank Positions</a></li>
 				<li><a href="#treaty_documents">Treaty Documents</a></li>
@@ -36,7 +34,7 @@
 	<div data-role="page" id="editorials">
 		<div data-role="header">
 			<h1>Editorials</h1>
-			<ul id="editorial_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			<ul id="editorials_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
 			</ul>
 		</div>
 	</div>
@@ -44,7 +42,7 @@
 	<div data-role="page" id="policy_positions">
 		<div data-role="header">
 			<h1>Policy Positions</h1>
-			<ul id="policy_positions_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			<ul id="policy_position_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
 			</ul>
 		</div>
 	</div>
@@ -60,7 +58,7 @@
 	<div data-role="page" id="treaty_documents">
 		<div data-role="header">
 			<h1>Treaty Documents</h1>
-			<ul id="treaty_documents_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			<ul id="treaty_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
 			</ul>
 		</div>
 	</div>
@@ -68,7 +66,7 @@
 	<div data-role="page" id="other_resources">
 		<div data-role="header">
 			<h1>Other Resources</h1>
-			<ul id="other_resources_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			<ul id="resource_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
 			</ul>
 		</div>
 	</div>
