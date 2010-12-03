@@ -96,7 +96,30 @@ function DocListView() {
         list_item.innerHTML = 'face';
         
         li = $("<li>");
-        li.text(row.title);
+        row_div = $("<div>");
+        
+        row_a = $("<a>");
+        
+        timestamp_div = $("<div>");
+        timestamp_div.text(self.documentFormat(row.date));
+        timestamp_div.addClass('result_subtitle')
+        
+        title_div = $("<div>");
+        title_div.text(row.title);
+        title_div.addClass('result_title');
+        
+        subtitle_div = $("<div>");
+        subtitle_div.text(row.source);
+        subtitle_div.addClass('result_subtitle');
+
+        row_div.append(timestamp_div);
+        row_div.append(title_div);
+        row_div.append(subtitle_div);
+        
+        row_a.append(row_div);
+        
+        
+        li.append(row_div);
         $(ul).append(li);
 
         /*
