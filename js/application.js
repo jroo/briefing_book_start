@@ -9,7 +9,7 @@ if (isiOS) {
 
 function Application() {
     this.title = "Briefing Book: New START Treaty";
-    this.version = "1.0";
+    this.version = "1.5";
     this.author = "Joshua Ruihley, Sunlight Foundation";
     this.copyright = "Copyright 2010, Sunlight Foundation";
     this.url = "http://sunlightfoundation.com";

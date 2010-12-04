@@ -1,5 +1,3 @@
-
-
 .result_title {
     margin-right:20px;
     font-weight: bold;
@@ -24,3 +22,5 @@
 .result_description {
     margin-right:20px;
 }
+
+#install_body { display:none; }
